@@ -14,7 +14,7 @@ export const fetchLogin = createAsyncThunk('user/login',
             const res = await fetch('http://localgost:2222/api/users/login', {
               method: "post",
               headers: {
-                'Content-Type': 'aplication/json'
+                'Content-Type': 'application/json'
               },
               body:JSON.stringify(user)
             })
