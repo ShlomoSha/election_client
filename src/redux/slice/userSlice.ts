@@ -8,7 +8,7 @@ const initialState: userState = {
     user: null
 }
 
-const fetchLogin = createAsyncThunk('user/login', 
+export const fetchLogin = createAsyncThunk('user/login', 
     async (user: {username:string, password: string}, thunkApi) => {
         try {
             const res = await fetch('http://localgost:2222/api/users/login', {
@@ -70,3 +70,5 @@ const userSlice = createSlice({
         })
     },
 })
+
+export default userSlice
