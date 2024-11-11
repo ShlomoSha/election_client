@@ -30,27 +30,6 @@ export const fetchLogin = createAsyncThunk('user/login',
     }
 )
 
-const fetchRegister = createAsyncThunk('user/register', 
-    async (user: {username:string, password: string, isAdmin: boolean}, thunkApi) => {
-        try {
-            const res = await fetch('http://localgost:2222/api/users/register', {
-              method: "post",
-              headers: {
-                'Content-Type': 'aplication/json'
-              },
-              body:JSON.stringify(user)
-            })
-            if (res.status != 200) {
-                thunkApi.rejectWithValue("Can't create new user, please try again")
-            }
-            const data = await res.json()
-            thunkApi.rejectWithValue(data)
-        } catch (err) {
-            thunkApi.rejectWithValue(err)
-        }
-    }
-)
-
 const userSlice = createSlice({
     name: "user",
     initialState,

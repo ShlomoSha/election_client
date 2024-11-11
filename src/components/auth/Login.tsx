@@ -23,7 +23,7 @@ export default function Login() {
   }, [])
   
   return (
-    <div>
+    <div className='login'>
       <input type="text" placeholder='user name' value={username} onChange={(e) => setUsername(e.target.value)} />
       <input type="password" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} />
       <button onClick={() => dispatch(fetchLogin({username, password}))}>Login</button>
