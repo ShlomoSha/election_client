@@ -1,4 +1,4 @@
-import { ICandidate } from "../redux/slice/candidatesSlice"
+import { ICandidate } from "./candidate"
 import { IUser } from "./user"
 
 export enum DataStatus {

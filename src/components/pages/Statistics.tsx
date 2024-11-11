@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '../../redux/store'
+import { useAppSelector } from '../../redux/store'
 
 export default function Statistics() {
   const { user } = useAppSelector(state => state.user)

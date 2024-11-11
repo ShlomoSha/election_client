@@ -1,13 +1,6 @@
 import { ActionReducerMapBuilder, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { candidatesState, DataStatus } from "../../types/redux";
-import { IUser } from "../../types/user";
-
-export interface ICandidate {
-    _id: string
-    name: string
-    image: string
-    votes: number
-}
+import { ICandidate } from "../../types/candidate";
 
 const initialState: candidatesState = {
     error: null,
@@ -18,12 +11,18 @@ const initialState: candidatesState = {
 export const fetchCandidates = createAsyncThunk('candidates/getList', 
     async (_, thunkApi) => {
         try {
-            const res = await fetch('http://localgost:2222/api/candidates')
+            const res = await fetch('http://localhost:2222/api/candidates', {
+                method: "get",
+                headers: {
+                    'authorization': localStorage['token']!
+                },
+            })
             if (res.status != 200) {
                 thunkApi.rejectWithValue("Can't get the list, please try again")
             }
             const data = await res.json()
-            thunkApi.rejectWithValue(data)
+            console.log(data)
+            return data
         } catch (err) {
             thunkApi.rejectWithValue("Can't get the list, please try again")
         }
