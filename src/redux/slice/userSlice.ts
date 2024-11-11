@@ -22,7 +22,8 @@ export const fetchLogin = createAsyncThunk('user/login',
                 thunkApi.rejectWithValue("Can't login, please try again")
             }
             const data = await res.json()
-            thunkApi.rejectWithValue(data)
+            console.log(555555555555555)
+            return data
         } catch (err) {
             thunkApi.rejectWithValue(err)
         }
