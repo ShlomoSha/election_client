@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Nav from './components/Nav'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
@@ -14,6 +14,7 @@ export default function App() {
         <Route path='register' element={<Register/>} />
         <Route path='votes' element={<Votes/>} />
         <Route path='statistics' element={<Statistics/>} />
+        <Route path='/' element={<Navigate to={'/votes'} />} />
       </Routes>
     </div>
   )
