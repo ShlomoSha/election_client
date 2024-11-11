@@ -5,7 +5,7 @@ export default function Nav() {
   const user = useAppSelector((state: RootState) => state.user)
   return (
     <div  className='nav'>
-      {user.user ? (
+      {user.user?._id ? (
         <>
           <NavLink to={'/votes'}>Votes</NavLink>
           {user.user.isAdmin && <NavLink to={'/statistics'}>Statistics</NavLink>}          
